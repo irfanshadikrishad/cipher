@@ -1,7 +1,9 @@
-bash << EOF
+bash <<EOF
 
 npm run build
 npm test
 npm run format
 
 git add .
+
+EOF
