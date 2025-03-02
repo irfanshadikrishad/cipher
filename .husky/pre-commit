@@ -1,4 +1,4 @@
-bash <<  EOF
+bash << EOF
 
 npm run build
 npm test
