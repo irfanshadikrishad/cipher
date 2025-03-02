@@ -1,8 +1,8 @@
-import { Ceaser } from "./ciphers/Ceaser.js";
+import { Ceaser } from "./ciphers/Ceaser.js"
 
 export abstract class Cipher {
-  static Ceaser: typeof Ceaser;
+  static Ceaser: typeof Ceaser
 
-  abstract encrypt(text: string): string;
-  abstract decrypt(text: string): string;
+  abstract encrypt(text: string): string
+  abstract decrypt(text: string): string
 }
