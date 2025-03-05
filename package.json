@@ -1,0 +1,40 @@
+{
+  "name": "@irfanshadikrishad/cipher",
+  "version": "1.0.0-beta.0",
+  "description": "Minimalist Cryptography",
+  "homepage": "https://github.com/irfanshadikrishad/cipher#readme",
+  "bugs": {
+    "url": "https://github.com/irfanshadikrishad/cipher/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irfanshadikrishad/cipher.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MPL-2.0",
+  "author": {
+    "name": "Irfan Shadik Rishad"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "cipher": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "rm -rf ./dist && tsc",
+    "build:watch": "rm -rf ./dist && tsc -w",
+    "format": "prettier . --write",
+    "test": "echo \"No yet implemented!\" && exit 1",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "prettier": "^3.5.2",
+    "typescript": "^5.8.2"
+  }
+}
