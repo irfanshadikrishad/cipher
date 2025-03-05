@@ -1,5 +1,5 @@
 import { Cipher } from "../Cipher.js"
-export class Ceaser extends Cipher {
+export class Caesar extends Cipher {
   constructor(shift) {
     super()
     this.shift = shift
