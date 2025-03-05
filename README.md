@@ -1,6 +1,6 @@
 #### @irfanshadikrishad/cipher
 
-Minimalist Cryptographic Implementaion
+Minimalist Cryptography Implementaion
 
 #### Usage
 
@@ -16,5 +16,7 @@ console.log(ceaser.encrypt("abx"))
 
 - Ceaser Cipher
 - Atbash Cipher
+- Playfair Cipher
+- Vigenere Cipher
 
 #### Thanks for visiting (>'-'<)
