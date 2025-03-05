@@ -1,6 +1,6 @@
 {
   "name": "@irfanshadikrishad/cipher",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.0",
   "description": "Minimalist Cryptography",
   "homepage": "https://github.com/irfanshadikrishad/cipher#readme",
   "bugs": {
