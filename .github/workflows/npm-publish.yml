@@ -13,26 +13,6 @@ jobs:
         with:
           ref: master
 
-      - name: Import GPG key
-        run: |
-          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
-          GPG_KEY_ID=$(gpg --list-secret-keys --keyid-format=long | grep sec | awk '{print $2}' | cut -d'/' -f2)
-          echo "GPG_KEY_ID=$GPG_KEY_ID" >> $GITHUB_ENV
-        env:
-          GPG_PRIVATE_KEY: ${{ secrets.PRIVATE_GPG_KEY }}
-
-      - name: Configure GPG for Non-Interactive Signing
-        run: |
-          echo "$GPG_PASSPHRASE" | gpg --batch --passphrase-fd 0 --pinentry-mode loopback --export-secret-keys "$GPG_KEY_ID" > /dev/null
-          git config --global user.name "Irfan Shadik Rishad"
-          git config --global user.email "irfanshadikrishad@gmail.com"
-          git config --global commit.gpgSign true
-          git config --global user.signingkey "$GPG_KEY_ID"
-          git config --global gpg.program gpg
-          git config --global gpg.passphrase "$GPG_PASSPHRASE"
-        env:
-          GPG_PASSPHRASE: ${{ secrets.PASSPHRASE }}
-
       - uses: actions/setup-node@v4
         with:
           node-version: "20.x"
@@ -49,13 +29,13 @@ jobs:
           echo "VERSION=$VERSION" >> $GITHUB_ENV
         shell: bash
 
-      - name: Commit the Version (Signed)
+      - name: Commit the Version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VERSION: ${{ env.VERSION }}
         run: |
           git add package.json package-lock.json
-          git commit -S -m "npmjs: v${VERSION}"
+          git commit -m "npmjs: v${VERSION}"
           git push origin master
 
       - name: Install Dependencies
@@ -65,6 +45,6 @@ jobs:
         run: npm run build
 
       - name: Publish Package
-        run: npm publish --provenance --access public
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
