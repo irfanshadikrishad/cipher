@@ -10,9 +10,7 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noEmit": true,
-    "allowImportingTsExtensions": true
+    "strict": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"],
