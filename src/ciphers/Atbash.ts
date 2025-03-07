@@ -1,4 +1,4 @@
-import { Cipher } from "../Cipher"
+import { Cipher } from "../Cipher.js"
 
 export class Atbash extends Cipher {
   encrypt(text: string): string {
