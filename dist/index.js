@@ -1,8 +1,8 @@
-import { Cipher } from "./Cipher"
-import { Caesar } from "./ciphers/Caesar"
-import { Atbash } from "./ciphers/Atbash"
-import { Playfair } from "./ciphers/Playfair"
-import { Vigenere } from "./ciphers/Vigenere"
+import { Cipher } from "./Cipher.js"
+import { Caesar } from "./ciphers/Caesar.js"
+import { Atbash } from "./ciphers/Atbash.js"
+import { Playfair } from "./ciphers/Playfair.js"
+import { Vigenere } from "./ciphers/Vigenere.js"
 Cipher.Caesar = Caesar
 Cipher.Atbash = Atbash
 Cipher.Playfair = Playfair

@@ -1,7 +1,7 @@
-import { Caesar } from "./ciphers/Caesar"
-import { Atbash } from "./ciphers/Atbash"
-import { Playfair } from "./ciphers/Playfair"
-import { Vigenere } from "./ciphers/Vigenere"
+import { Caesar } from "./ciphers/Caesar.js"
+import { Atbash } from "./ciphers/Atbash.js"
+import { Playfair } from "./ciphers/Playfair.js"
+import { Vigenere } from "./ciphers/Vigenere.js"
 
 export abstract class Cipher {
   static Caesar: typeof Caesar

@@ -3,11 +3,14 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "target": "ES6",
-    "module": "Preserve",
-    "moduleResolution": "bundler",
+    "module": "ES6",
+    "moduleResolution": "node",
     "declaration": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"],
