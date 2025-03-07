@@ -1,0 +1,8 @@
+.husky/
+.github/
+src/
+tests/
+node_modules/
+eslint.config.js
+tsconfig.json
+jest.config.js

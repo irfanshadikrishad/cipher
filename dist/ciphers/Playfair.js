@@ -1,4 +1,4 @@
-import { Cipher } from "../Cipher.js"
+import { Cipher } from "../Cipher"
 export class Playfair extends Cipher {
   constructor(key) {
     super()
