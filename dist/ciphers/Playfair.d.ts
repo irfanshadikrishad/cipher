@@ -1,4 +1,4 @@
-import { Cipher } from "../Cipher.js"
+import { Cipher } from "../Cipher"
 export declare class Playfair extends Cipher {
   private keyMatrix
   constructor(key: string)

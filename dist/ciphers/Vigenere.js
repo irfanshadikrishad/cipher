@@ -1,4 +1,4 @@
-import { Cipher } from "../Cipher.js"
+import { Cipher } from "../Cipher"
 export class Vigenere extends Cipher {
   constructor(key) {
     super()
