@@ -24,5 +24,7 @@ console.log(ceaser.encrypt("hello world"))
 - Atbash Cipher
 - Playfair Cipher
 - Vigenere Cipher
+- The Alphabet Cipher
+- & more coming soon ...
 
 #### Thanks for visiting (>'-'<)
