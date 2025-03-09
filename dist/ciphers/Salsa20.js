@@ -56,7 +56,7 @@ export class Salsa20 extends Cipher {
     return ciphertext
   }
   decrypt(ciphertext) {
-    this.resetCounter()
+    this.counter = 0
     const decryptedBytes = new Uint8Array(ciphertext.length)
     for (let i = 0; i < ciphertext.length; i += 64) {
       const keystream = this.generateKeystreamBlock()
@@ -65,8 +65,5 @@ export class Salsa20 extends Cipher {
       }
     }
     return new TextDecoder().decode(decryptedBytes)
-  }
-  resetCounter() {
-    this.counter = 0
   }
 }

@@ -79,7 +79,7 @@ export class Salsa20 extends Cipher {
   }
 
   decrypt(ciphertext: Uint8Array): string {
-    this.resetCounter()
+    this.counter = 0
     const decryptedBytes = new Uint8Array(ciphertext.length)
 
     for (let i = 0; i < ciphertext.length; i += 64) {
@@ -90,9 +90,5 @@ export class Salsa20 extends Cipher {
     }
 
     return new TextDecoder().decode(decryptedBytes)
-  }
-
-  resetCounter() {
-    this.counter = 0
   }
 }

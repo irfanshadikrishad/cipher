@@ -9,5 +9,4 @@ export declare class Salsa20 extends Cipher {
   private generateKeystreamBlock
   encrypt(plaintext: string): Uint8Array
   decrypt(ciphertext: Uint8Array): string
-  resetCounter(): void
 }
