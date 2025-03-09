@@ -1,4 +1,5 @@
 import { Cipher } from "../src/index"
+import crypto from "crypto"
 
 test(`Salsa20`, () => {
   const key = crypto.getRandomValues(new Uint8Array(32))
