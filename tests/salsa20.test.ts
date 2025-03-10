@@ -1,5 +1,4 @@
 import { Cipher } from "../src/index"
-import crypto from "crypto"
 
 test(`Salsa20`, () => {
   const key = Cipher.Salsa20.generateKey()

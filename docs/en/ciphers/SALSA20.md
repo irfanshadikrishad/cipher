@@ -22,3 +22,7 @@ const decrypted = salsa20.decrypt(encrypted)
 console.log("Decrypted:", decrypted)
 // Output should be: "hello, salsa20!"
 ```
+
+#### Note
+
+We have conversion between `Unit8Array` to `base64` for string format to make it easier to store or transfer, especially in environments like JSON, URLs, or databases.
