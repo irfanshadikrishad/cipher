@@ -1,7 +1,11 @@
 import { Cipher } from "../Cipher.js"
+import crypto from "crypto"
+import { Buffer } from "buffer"
 export class Salsa20 extends Cipher {
   constructor(key, nonce, counter = 0) {
     super()
+    if (typeof key === "string") key = Buffer.from(key, "base64")
+    if (typeof nonce === "string") nonce = Buffer.from(nonce, "base64")
     if (key.length !== 32) throw new Error("Key must be 32 bytes (256-bit).")
     if (nonce.length !== 8) throw new Error("Nonce must be 8 bytes (64-bit).")
     this.key = new Uint32Array(new Uint8Array(key).buffer)
@@ -49,21 +53,38 @@ export class Salsa20 extends Cipher {
     const ciphertext = new Uint8Array(textBytes.length)
     for (let i = 0; i < textBytes.length; i += 64) {
       const keystream = this.generateKeystreamBlock()
-      for (let j = 0; j < 64 && i + j < textBytes.length; j++) {
+      const blockLength = Math.min(64, textBytes.length - i)
+      for (let j = 0; j < blockLength; j++) {
         ciphertext[i + j] = textBytes[i + j] ^ keystream[j]
       }
     }
-    return ciphertext
+    return Salsa20.encodeBase64(ciphertext)
   }
   decrypt(ciphertext) {
+    const originalCounter = this.counter
     this.counter = 0
-    const decryptedBytes = new Uint8Array(ciphertext.length)
-    for (let i = 0; i < ciphertext.length; i += 64) {
+    const cipherUnit8Array = Salsa20.decodeBase64(ciphertext)
+    const decryptedBytes = new Uint8Array(cipherUnit8Array.length)
+    for (let i = 0; i < cipherUnit8Array.length; i += 64) {
       const keystream = this.generateKeystreamBlock()
-      for (let j = 0; j < 64 && i + j < ciphertext.length; j++) {
-        decryptedBytes[i + j] = ciphertext[i + j] ^ keystream[j]
+      const blockLength = Math.min(64, cipherUnit8Array.length - i)
+      for (let j = 0; j < blockLength; j++) {
+        decryptedBytes[i + j] = cipherUnit8Array[i + j] ^ keystream[j]
       }
     }
+    this.counter = originalCounter
     return new TextDecoder().decode(decryptedBytes)
+  }
+  static generateKey() {
+    return Salsa20.encodeBase64(crypto.getRandomValues(new Uint8Array(32)))
+  }
+  static generateNonce() {
+    return Salsa20.encodeBase64(crypto.getRandomValues(new Uint8Array(8)))
+  }
+  static encodeBase64(uint8array) {
+    return Buffer.from(uint8array).toString("base64")
+  }
+  static decodeBase64(base64) {
+    return new Uint8Array(Buffer.from(base64, "base64"))
   }
 }
