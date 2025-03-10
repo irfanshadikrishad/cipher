@@ -2,8 +2,9 @@ import { Cipher } from "../src/index"
 import crypto from "crypto"
 
 test(`Salsa20`, () => {
-  const key = crypto.getRandomValues(new Uint8Array(32))
-  const nonce = crypto.getRandomValues(new Uint8Array(8))
+  const key = Cipher.Salsa20.generateKey()
+  const nonce = Cipher.Salsa20.generateNonce()
+
   const salsa = new Cipher.Salsa20(key, nonce)
 
   const plaintext = "Hello, Salsa20!"
