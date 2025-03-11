@@ -7,17 +7,30 @@ export class ADFGVX extends Cipher {
   private reverseSquare: Map<string, string> = new Map()
   private adfgvx: string[] = ["A", "D", "F", "G", "V", "X"]
 
-  constructor(key?: string, codeword?: string) {
+  constructor(key?: string | null, codeword?: string | null) {
     super()
     if (key) this.key = key.toUpperCase()
     if (codeword) this.codeword = codeword.toUpperCase()
     this.createPolybiusSquare(this.codeword)
   }
 
-  private createPolybiusSquare(alphabet: string) {
+  private createPolybiusSquare(codeword: string) {
+    const uniqueLetters: string[] = []
+    for (const char of codeword.toUpperCase()) {
+      if (!uniqueLetters.includes(char)) {
+        uniqueLetters.push(char)
+      }
+    }
+
+    const remainingChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      .split("")
+      .filter((char) => !uniqueLetters.includes(char))
+
+    const alphabet = [...uniqueLetters, ...remainingChars]
+
     let index = 0
-    for (let row of this.adfgvx) {
-      for (let col of this.adfgvx) {
+    for (const row of this.adfgvx) {
+      for (const col of this.adfgvx) {
         const letter = alphabet[index]
         const code = row + col
         this.polybiusSquare.set(letter, code)
@@ -48,7 +61,6 @@ export class ADFGVX extends Cipher {
           }
         }
       }
-      console.log(grid)
 
       return keyOrder
         .map((col) => grid.map((row) => row[col]).join(""))
@@ -57,17 +69,15 @@ export class ADFGVX extends Cipher {
       const sortedKeyOrder = [...keyOrder].sort((a, b) =>
         this.key[a].localeCompare(this.key[b])
       )
-      console.log(keyOrder, sortedKeyOrder)
 
       let charIndex = 0
-      for (let sortedCol of sortedKeyOrder) {
+      for (const sortedCol of sortedKeyOrder) {
         for (let row = 0; row < numRows; row++) {
           if (charIndex < text.length) {
             grid[row][sortedCol] = text[charIndex++]
           }
         }
       }
-      console.log(grid)
 
       return grid.flat().join("")
     }
@@ -84,17 +94,14 @@ export class ADFGVX extends Cipher {
   }
 
   decrypt(text: string): string {
-    const encryptedText = text.replace(/[^A-Za-z0-9]/g, "").toUpperCase()
-    const transposedText = this.columnarTranspose(encryptedText, true)
-    // console.log(this.reverseSquare)
+    const encrypted = text.replace(/[^A-Za-z0-9]/g, "").toUpperCase()
+    const intermediate = this.columnarTranspose(encrypted, true)
 
     const polybiusText =
-      transposedText.match(/.{1,2}/g)?.map((char) => {
-        console.log(char)
+      intermediate.match(/.{1,2}/g)?.map((char) => {
         return this.reverseSquare.get(char) || ""
       }) || []
-    // console.log(polybiusText.join(""))
 
-    return ""
+    return polybiusText.join("")
   }
 }
