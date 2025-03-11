@@ -1,6 +1,6 @@
 {
   "name": "@irfanshadikrishad/cipher",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A versatile and secure cryptographic library for implementing various cipher algorithms in Node.js applications.",
   "homepage": "https://github.com/irfanshadikrishad/cipher#readme",
   "bugs": {
