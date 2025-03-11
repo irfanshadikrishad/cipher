@@ -4,6 +4,7 @@ import { Playfair } from "./ciphers/Playfair.js"
 import { Vigenere } from "./ciphers/Vigenere.js"
 import { Alphabet } from "./ciphers/Alphabet.js"
 import { Salsa20 } from "./ciphers/Salsa20.js"
+import { ADFGVX } from "./ciphers/ADFGVX.js"
 
 export abstract class Cipher {
   /**
@@ -38,6 +39,12 @@ export abstract class Cipher {
    * @param counter 64-bit counter
    */
   static Salsa20: typeof Salsa20
+  /**
+   * The ADFGVX cipher was a manually applied field cipher used by the Imperial German Army during World War I.
+   * @param key - more than 1 characters long (more length, more secure)
+   * @param codeword - 36 characters long
+   */
+  static ADFGVX: typeof ADFGVX
 
   abstract encrypt(text: string): string | Uint8Array
   abstract decrypt(text: string | Uint8Array): string
