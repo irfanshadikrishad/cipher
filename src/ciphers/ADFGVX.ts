@@ -1,17 +1,17 @@
 import { Cipher } from "../Cipher.js"
 
 export class ADFGVX extends Cipher {
-  private key: string
+  private key: string = "CIPHER"
+  private codeword: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
   private polybiusSquare: Map<string, string> = new Map()
   private reverseSquare: Map<string, string> = new Map()
   private adfgvx: string[] = ["A", "D", "F", "G", "V", "X"]
 
-  constructor(key: string, alphabet: string) {
+  constructor(key?: string, codeword?: string) {
     super()
-    if (alphabet.length !== 36)
-      throw new Error("Alphabet must be exactly 36 characters long.")
-    this.key = key.toUpperCase()
-    this.createPolybiusSquare(alphabet.toUpperCase())
+    if (key) this.key = key.toUpperCase()
+    if (codeword) this.codeword = codeword.toUpperCase()
+    this.createPolybiusSquare(this.codeword)
   }
 
   private createPolybiusSquare(alphabet: string) {
@@ -48,6 +48,8 @@ export class ADFGVX extends Cipher {
           }
         }
       }
+      console.log(grid)
+
       return keyOrder
         .map((col) => grid.map((row) => row[col]).join(""))
         .join("")
@@ -55,6 +57,8 @@ export class ADFGVX extends Cipher {
       const sortedKeyOrder = [...keyOrder].sort((a, b) =>
         this.key[a].localeCompare(this.key[b])
       )
+      console.log(keyOrder, sortedKeyOrder)
+
       let charIndex = 0
       for (let sortedCol of sortedKeyOrder) {
         for (let row = 0; row < numRows; row++) {
@@ -63,29 +67,34 @@ export class ADFGVX extends Cipher {
           }
         }
       }
+      console.log(grid)
+
       return grid.flat().join("")
     }
   }
 
-  encrypt(plaintext: string): string {
-    const sanitizedText = plaintext.toUpperCase().replace(/[^A-Z0-9]/g, "")
-    let polybiusText = sanitizedText
+  encrypt(text: string): string {
+    const plaintext = text.replace(/[^A-Za-z0-9]/g, "").toUpperCase()
+    const polybiusText = plaintext
       .split("")
       .map((char) => this.polybiusSquare.get(char) || "")
       .join("")
+
     return this.columnarTranspose(polybiusText)
   }
 
-  decrypt(ciphertext: string): string {
-    let transposedText = this.columnarTranspose(
-      ciphertext.replace(/\s/g, ""),
-      true
-    )
-    return (
-      transposedText
-        .match(/.{2}/g)
-        ?.map((pair) => this.reverseSquare.get(pair) || "")
-        .join("") || ""
-    )
+  decrypt(text: string): string {
+    const encryptedText = text.replace(/[^A-Za-z0-9]/g, "").toUpperCase()
+    const transposedText = this.columnarTranspose(encryptedText, true)
+    // console.log(this.reverseSquare)
+
+    const polybiusText =
+      transposedText.match(/.{1,2}/g)?.map((char) => {
+        console.log(char)
+        return this.reverseSquare.get(char) || ""
+      }) || []
+    // console.log(polybiusText.join(""))
+
+    return ""
   }
 }

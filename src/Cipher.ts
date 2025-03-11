@@ -42,7 +42,7 @@ export abstract class Cipher {
   /**
    * The ADFGVX cipher was a manually applied field cipher used by the Imperial German Army during World War I.
    * @param key - more than 1 characters long (more length, more secure)
-   * @param alphabet - 36 characters long
+   * @param codeword - 36 characters long
    */
   static ADFGVX: typeof ADFGVX
 
