@@ -5,6 +5,7 @@ import { Vigenere } from "./ciphers/Vigenere.js"
 import { Alphabet } from "./ciphers/Alphabet.js"
 import { Salsa20 } from "./ciphers/Salsa20.js"
 import { ADFGVX } from "./ciphers/ADFGVX.js"
+import { AES } from "./ciphers/AES.js"
 export declare abstract class Cipher {
   /**
    * Caesar cipher is a substitution cipher where each letter in the plaintext is shifted a certain number of places down the alphabet.
@@ -44,6 +45,12 @@ export declare abstract class Cipher {
    * @param codeword - 36 characters long
    */
   static ADFGVX: typeof ADFGVX
+  /**
+   * Advanced Encryption Standard (AES) is a symmetric encryption algorithm.
+   * @param key 256-bit (32 byte) key
+   * @param iv 128-bit (16 byte) initialization vector
+   */
+  static AES: typeof AES
   abstract encrypt(text: string): string | Uint8Array
   abstract decrypt(text: string | Uint8Array): string
 }
