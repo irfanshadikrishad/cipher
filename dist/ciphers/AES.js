@@ -1,5 +1,6 @@
 import crypto from "crypto"
 import { Cipher } from "../Cipher.js"
+import { Buffer } from "buffer"
 export class AES extends Cipher {
   constructor(key, iv) {
     super()
