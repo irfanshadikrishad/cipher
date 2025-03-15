@@ -1,4 +1,5 @@
 import { Cipher } from "../Cipher.js"
+import { Buffer } from "buffer"
 
 const IP = [
   // Initial Permutation
@@ -27,14 +28,14 @@ export class DES extends Cipher {
   }
 
   encrypt(text: string): string {
-    let paddedText = this.pad(text)
-    let encryptedBlocks = []
+    const paddedText = this.pad(text)
+    const encryptedBlocks = []
 
     for (let i = 0; i < paddedText.length; i += 8) {
       const block = paddedText.substring(i, i + 8)
       const input = this.stringToBigInt(block)
       const permuted = this.permute(input, IP)
-      const encrypted = this.feistel(permuted, true)
+      const encrypted = this.feistel(permuted)
       const finalPerm = this.permute(encrypted, FP)
       encryptedBlocks.push(finalPerm.toString(16).padStart(16, "0"))
     }
@@ -49,7 +50,7 @@ export class DES extends Cipher {
       // 16 hex chars = 8 bytes
       const block = BigInt("0x" + text.substring(i, i + 16))
       const permuted = this.permute(block, IP)
-      const decrypted = this.feistel(permuted, false)
+      const decrypted = this.feistel(permuted)
       const finalPerm = this.permute(decrypted, FP)
       decryptedText += this.bigIntToString(finalPerm)
     }
@@ -67,13 +68,13 @@ export class DES extends Cipher {
     return text.slice(0, -padLength)
   }
 
-  private feistel(input: bigint, encrypt: boolean): bigint {
+  private feistel(input: bigint): bigint {
     let L = input >> BigInt(32)
     let R = input & BigInt(0xffffffff)
 
     for (let i = 0; i < 16; i++) {
-      let roundKey = this.getRoundKey(i, encrypt)
-      let newR = L ^ this.f(R, roundKey)
+      const roundKey = this.getRoundKey()
+      const newR = L ^ this.f(R, roundKey)
       L = R
       R = newR
     }
@@ -81,7 +82,7 @@ export class DES extends Cipher {
     return (R << BigInt(32)) | L
   }
 
-  private getRoundKey(round: number, encrypt: boolean): bigint {
+  private getRoundKey(): bigint {
     return this.key // Placeholder (Key Schedule logic needed)
   }
 
