@@ -6,6 +6,7 @@ import { Alphabet } from "./ciphers/Alphabet.js"
 import { Salsa20 } from "./ciphers/Salsa20.js"
 import { ADFGVX } from "./ciphers/ADFGVX.js"
 import { AES } from "./ciphers/AES.js"
+import { DES } from "./ciphers/DES.js"
 
 export abstract class Cipher {
   /**
@@ -52,7 +53,13 @@ export abstract class Cipher {
    * @param iv 128-bit (16 byte) initialization vector
    */
   static AES: typeof AES
+  /**
+   * Data Encryption Standard (DES) is a symmetric encryption algorithm.
+   * @param key 8 characters long
+   * @param iv 8 characters long
+   */
+  static DES: typeof DES
 
-  abstract encrypt(text: string): string | Uint8Array
-  abstract decrypt(text: string | Uint8Array): string
+  abstract encrypt(text: string): string
+  abstract decrypt(text: string): string
 }

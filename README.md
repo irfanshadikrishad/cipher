@@ -43,16 +43,17 @@ console.log(caesar.encrypt("hello world")) // Output: "nkrru cuxrj"
 
 This library provides implementations of various classical and modern ciphers:
 
-| Cipher                                              | Type                                     | Key required? | Strength | Used In/Notes                              |
-| --------------------------------------------------- | ---------------------------------------- | ------------- | -------- | ------------------------------------------ |
-| [Caesar Cipher](/docs/en/ciphers/CAESAR.md)         | Substitution                             | No            | Low      | Ancient Rome, Simple Obsfuscation          |
-| [Atbash Cipher](/docs/en/ciphers/ATBASH.md)         | Substitution                             | No            | Low      | Hebrew Cipher, Basic Encryption            |
-| [Playfair Cipher](/docs/en/ciphers/PLAYFAIR.md)     | Diagraph-based                           | Yes           | Medium   | Used in WWI & WWII                         |
-| [Vigenère Cipher](/docs/en/ciphers/VIGENERE.md)     | Polyalphabetic                           | Yes           | Medium   | Used in Historical Documents               |
-| [The Alphabet Cipher](/docs/en/ciphers/ALPHABET.md) | Polyalphabetic                           | Yes           | Medium   | Inspired by Vigenere, Cryptography Puzzles |
-| [Salsa20](/docs/en/ciphers/SALSA20.md)              | Stream Cipher                            | Yes           | High     | Modern Cryptography, Secure Communications |
-| [ADFGVX](/docs/en/ciphers/ADFGVX.md)                | Polybius Square + Columnar Transposition | Yes           | Medium   | Used in WWI, Known for 6x6 polybius square |
-| [AES](/docs/en/ciphers/AES.md)                      | Symmetric Block Cipher                   | Yes           | High     | Also known as, Rijndael                    |
+| Cipher                                              | Type                                     | Key required? | Strength | Used In/Notes                                       |
+| --------------------------------------------------- | ---------------------------------------- | ------------- | -------- | --------------------------------------------------- |
+| [Caesar Cipher](/docs/en/ciphers/CAESAR.md)         | Substitution                             | No            | Low      | Ancient Rome, Simple Obsfuscation                   |
+| [Atbash Cipher](/docs/en/ciphers/ATBASH.md)         | Substitution                             | No            | Low      | Hebrew Cipher, Basic Encryption                     |
+| [Playfair Cipher](/docs/en/ciphers/PLAYFAIR.md)     | Diagraph-based                           | Yes           | Medium   | Used in WWI & WWII                                  |
+| [Vigenère Cipher](/docs/en/ciphers/VIGENERE.md)     | Polyalphabetic                           | Yes           | Medium   | Used in Historical Documents                        |
+| [The Alphabet Cipher](/docs/en/ciphers/ALPHABET.md) | Polyalphabetic                           | Yes           | Medium   | Inspired by Vigenere, Cryptography Puzzles          |
+| [Salsa20](/docs/en/ciphers/SALSA20.md)              | Stream Cipher                            | Yes           | High     | Modern Cryptography, Secure Communications          |
+| [ADFGVX](/docs/en/ciphers/ADFGVX.md)                | Polybius Square + Columnar Transposition | Yes           | Medium   | Used in WWI, Known for 6x6 polybius square          |
+| [AES](/docs/en/ciphers/AES.md)                      | Symmetric Block Cipher                   | Yes           | High     | Also known as, Rijndael                             |
+| [DES](/docs/en/ciphers/DES.md)                      | Symmetric Block Cipher                   | Yes           | Medium   | 56-bit key, Used in legacy systems, replaced by AES |
 
 More ciphers coming soon...
 
