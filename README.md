@@ -52,6 +52,7 @@ This library provides implementations of various classical and modern ciphers:
 | [The Alphabet Cipher](/docs/en/ciphers/ALPHABET.md) | Polyalphabetic                           | Yes           | Medium   | Inspired by Vigenere, Cryptography Puzzles |
 | [Salsa20](/docs/en/ciphers/SALSA20.md)              | Stream Cipher                            | Yes           | High     | Modern Cryptography, Secure Communications |
 | [ADFGVX](/docs/en/ciphers/ADFGVX.md)                | Polybius Square + Columnar Transposition | Yes           | Medium   | Used in WWI, Known for 6x6 polybius square |
+| [AES](/docs/en/ciphers/AES.md)                      | Symmetric Block Cipher                   | Yes           | High     | Also known as, Rijndael                    |
 
 More ciphers coming soon...
 
