@@ -1,6 +1,6 @@
 #### @irfanshadikrishad/cipher
 
-A versatile and secure cryptographic library for implementing various cipher algorithms in Node.js applications.
+A versatile and secure cryptographic library for implementing various cipher algorithms in Node.js applications with zero/0 dependencies.
 
 ![NPM Version](https://img.shields.io/npm/v/%40irfanshadikrishad%2Fcipher?style=for-the-badge&labelColor=202020&color=81B29A)
 ![NPM Downloads](https://img.shields.io/npm/dw/%40irfanshadikrishad%2Fcipher?style=for-the-badge&labelColor=202020&color=BE9A60)

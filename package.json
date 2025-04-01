@@ -1,7 +1,7 @@
 {
   "name": "@irfanshadikrishad/cipher",
   "version": "1.0.7",
-  "description": "A versatile and secure cryptographic library for implementing various cipher algorithms in Node.js applications.",
+  "description": "A versatile and secure cryptographic library for implementing various cipher algorithms in Node.js applications with zero/0 dependencies.",
   "homepage": "https://github.com/irfanshadikrishad/cipher#readme",
   "bugs": {
     "url": "https://github.com/irfanshadikrishad/cipher/issues"
@@ -36,7 +36,8 @@
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "test": "jest ./tests",
-    "prepare": "husky"
+    "prepare": "husky",
+    "all": "npm run build && npm run format && npm run lint && npm run test"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "@irfanshadikrishad/cipher"
+authors:
+  - name: "Irfan Shadik Rishad"
+    orcid: "0009-0001-6745-5291"
+date-released: "2025-02-28"
+repository-code: "https://github.com/irfanshadikrishad/cipher"
