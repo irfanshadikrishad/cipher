@@ -1,0 +1,55 @@
+name: npmjs
+on:
+  release:
+    types: [published]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          registry-url: "https://registry.npmjs.org"
+      - name: Configure Git
+        run: |
+          git config --global user.name "Irfan Shadik Rishad"
+          git config --global user.email "irfanshadikrishad@gmail.com"
+      - name: Bump Version
+        run: |
+          TAG="${{ github.event.release.tag_name }}"
+
+          if [[ "$TAG" == *"-major" ]]; then
+            npm version major --no-git-tag-version
+          elif [[ "$TAG" == *"-minor" ]]; then
+            npm version minor --no-git-tag-version
+          else
+            npm version patch --no-git-tag-version
+          fi
+      - name: Get Version
+        id: version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+        shell: bash
+      - name: Commit the Version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ env.VERSION }}
+        run: |
+          git add package.json package-lock.json
+          git commit -m "npmjs: v${VERSION}"
+          git push origin master
+      - name: Install Dependencies
+        run: npm ci
+      - name: Build Project
+        run: npm run build
+      - name: Publish Package
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
