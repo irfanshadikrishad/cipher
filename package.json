@@ -1,0 +1,63 @@
+{
+  "name": "@irfanshadikrishad/cipher",
+  "version": "1.0.10",
+  "description": "A versatile and secure cryptographic library for implementing various cipher algorithms in Node.js applications with zero/0 dependencies.",
+  "homepage": "https://github.com/irfanshadikrishad/cipher#readme",
+  "bugs": {
+    "url": "https://github.com/irfanshadikrishad/cipher/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irfanshadikrishad/cipher.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "directories": {
+    "test": "test",
+    "lib": "src"
+  },
+  "license": "MPL-2.0",
+  "author": {
+    "name": "Irfan Shadik Rishad"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "cipher": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "rm -rf ./dist && tsc",
+    "build:watch": "rm -rf ./dist && tsc -w",
+    "format": "prettier . --write",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "test": "jest ./tests",
+    "prepare": "husky",
+    "all": "npm run build && npm run format && npm run lint && npm run test"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.1",
+    "@types/jest": "^29.5.14",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "eslint": "^9.25.1",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "jest": "^29.7.0",
+    "prettier": "^3.5.3",
+    "ts-jest": "^29.3.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.31.1"
+  },
+  "keywords": [
+    "security",
+    "cipher",
+    "cryptography",
+    "encryption",
+    "decryption"
+  ]
+}
