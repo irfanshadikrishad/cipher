@@ -1,1 +1,2 @@
-export class Cipher {}
+export class Cipher {
+}

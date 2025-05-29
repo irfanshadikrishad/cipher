@@ -1,10 +1,11 @@
+import crypto from "crypto"
 import { Cipher } from "../Cipher.js"
 
 export class ECC extends Cipher {
   private recipientPublicKey?: CryptoKey
   private ownPrivateKey?: CryptoKey
-  static recipientPublicKey: any
-  static ownPrivateKey: any
+  static recipientPublicKey: string
+  static ownPrivateKey: string
 
   constructor(recipientPublicKey?: CryptoKey, ownPrivateKey?: CryptoKey) {
     super()
