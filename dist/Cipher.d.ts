@@ -7,6 +7,7 @@ import { Salsa20 } from "./ciphers/Salsa20.js"
 import { ADFGVX } from "./ciphers/ADFGVX.js"
 import { AES } from "./ciphers/AES.js"
 import { DES } from "./ciphers/DES.js"
+import { ECC } from "./ciphers/ECC.js"
 export declare abstract class Cipher {
   /**
    * Caesar cipher is a substitution cipher where each letter in the plaintext is shifted a certain number of places down the alphabet.
@@ -58,6 +59,10 @@ export declare abstract class Cipher {
    * @param iv 8 characters long
    */
   static DES: typeof DES
-  abstract encrypt(text: string): string
-  abstract decrypt(text: string): string
+  /**
+   * Elliptic-curve cryptography (ECC) is an approach to public-key cryptography based on the algebraic structure of elliptic curves over finite fields.
+   */
+  static ECC: typeof ECC
+  abstract encrypt(text: string): string | Promise<string>
+  abstract decrypt(text: string): string | Promise<string>
 }

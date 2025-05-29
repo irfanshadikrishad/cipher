@@ -79,15 +79,12 @@ export class ADFGVX extends Cipher {
     return this.columnarTranspose(polybiusText)
   }
   decrypt(text) {
-    var _a
     const encrypted = text.replace(/[^A-Za-z0-9]/g, "").toUpperCase()
     const intermediate = this.columnarTranspose(encrypted, true)
     const polybiusText =
-      ((_a = intermediate.match(/.{1,2}/g)) === null || _a === void 0
-        ? void 0
-        : _a.map((char) => {
-            return this.reverseSquare.get(char) || ""
-          })) || []
+      intermediate.match(/.{1,2}/g)?.map((char) => {
+        return this.reverseSquare.get(char) || ""
+      }) || []
     return polybiusText.join("")
   }
 }

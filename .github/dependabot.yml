@@ -3,12 +3,11 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     labels:
       - "dependencies"
       - "javascript"
     commit-message:
       prefix: "chore(deps)"
     open-pull-requests-limit: 10
-    allow:
-      - dependency-type: "development"
+    versioning-strategy: increase

@@ -8,6 +8,7 @@ import { Salsa20 } from "./ciphers/Salsa20.js"
 import { ADFGVX } from "./ciphers/ADFGVX.js"
 import { AES } from "./ciphers/AES.js"
 import { DES } from "./ciphers/DES.js"
+import { ECC } from "./ciphers/ECC.js"
 Cipher.Caesar = Caesar
 Cipher.Atbash = Atbash
 Cipher.Playfair = Playfair
@@ -17,4 +18,5 @@ Cipher.Salsa20 = Salsa20
 Cipher.ADFGVX = ADFGVX
 Cipher.AES = AES
 Cipher.DES = DES
+Cipher.ECC = ECC
 export { Cipher }
