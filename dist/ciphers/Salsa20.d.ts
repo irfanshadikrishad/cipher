@@ -1,4 +1,4 @@
-import { Cipher } from "../Cipher.js";
+import { Cipher } from '../Cipher.js';
 export declare class Salsa20 extends Cipher {
     private key;
     private nonce;

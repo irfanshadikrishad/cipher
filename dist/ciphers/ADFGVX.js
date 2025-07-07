@@ -1,12 +1,12 @@
-import { Cipher } from "../Cipher.js";
+import { Cipher } from '../Cipher.js';
 export class ADFGVX extends Cipher {
     constructor(key, codeword) {
         super();
-        this.key = "CIPHER";
-        this.codeword = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        this.key = 'CIPHER';
+        this.codeword = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         this.polybiusSquare = new Map();
         this.reverseSquare = new Map();
-        this.adfgvx = ["A", "D", "F", "G", "V", "X"];
+        this.adfgvx = ['A', 'D', 'F', 'G', 'V', 'X'];
         if (key)
             this.key = key.toUpperCase();
         if (codeword)
@@ -20,8 +20,8 @@ export class ADFGVX extends Cipher {
                 uniqueLetters.push(char);
             }
         }
-        const remainingChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-            .split("")
+        const remainingChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+            .split('')
             .filter((char) => !uniqueLetters.includes(char));
         const alphabet = [...uniqueLetters, ...remainingChars];
         let index = 0;
@@ -42,7 +42,7 @@ export class ADFGVX extends Cipher {
             .map((item) => item.index);
         const numCols = this.key.length;
         const numRows = Math.ceil(text.length / numCols);
-        const grid = Array.from({ length: numRows }, () => new Array(numCols).fill(""));
+        const grid = Array.from({ length: numRows }, () => new Array(numCols).fill(''));
         if (!decrypt) {
             let charIndex = 0;
             for (let row = 0; row < numRows; row++) {
@@ -53,8 +53,8 @@ export class ADFGVX extends Cipher {
                 }
             }
             return keyOrder
-                .map((col) => grid.map((row) => row[col]).join(""))
-                .join("");
+                .map((col) => grid.map((row) => row[col]).join(''))
+                .join('');
         }
         else {
             const sortedKeyOrder = [...keyOrder].sort((a, b) => this.key[a].localeCompare(this.key[b]));
@@ -66,23 +66,23 @@ export class ADFGVX extends Cipher {
                     }
                 }
             }
-            return grid.flat().join("");
+            return grid.flat().join('');
         }
     }
     encrypt(text) {
-        const plaintext = text.replace(/[^A-Za-z0-9]/g, "").toUpperCase();
+        const plaintext = text.replace(/[^A-Za-z0-9]/g, '').toUpperCase();
         const polybiusText = plaintext
-            .split("")
-            .map((char) => this.polybiusSquare.get(char) || "")
-            .join("");
+            .split('')
+            .map((char) => this.polybiusSquare.get(char) || '')
+            .join('');
         return this.columnarTranspose(polybiusText);
     }
     decrypt(text) {
-        const encrypted = text.replace(/[^A-Za-z0-9]/g, "").toUpperCase();
+        const encrypted = text.replace(/[^A-Za-z0-9]/g, '').toUpperCase();
         const intermediate = this.columnarTranspose(encrypted, true);
         const polybiusText = intermediate.match(/.{1,2}/g)?.map((char) => {
-            return this.reverseSquare.get(char) || "";
+            return this.reverseSquare.get(char) || '';
         }) || [];
-        return polybiusText.join("");
+        return polybiusText.join('');
     }
 }

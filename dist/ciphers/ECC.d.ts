@@ -1,4 +1,4 @@
-import { Cipher } from "../Cipher.js";
+import { Cipher } from '../Cipher.js';
 export declare class ECC extends Cipher {
     private recipientPublicKey?;
     private ownPrivateKey?;

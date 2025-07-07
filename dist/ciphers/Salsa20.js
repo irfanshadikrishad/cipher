@@ -1,17 +1,17 @@
-import { Cipher } from "../Cipher.js";
-import crypto from "crypto";
-import { Buffer } from "buffer";
+import { Buffer } from 'buffer';
+import crypto from 'crypto';
+import { Cipher } from '../Cipher.js';
 export class Salsa20 extends Cipher {
     constructor(key, nonce, counter = 0) {
         super();
-        if (typeof key === "string")
-            key = Buffer.from(key, "base64");
-        if (typeof nonce === "string")
-            nonce = Buffer.from(nonce, "base64");
+        if (typeof key === 'string')
+            key = Buffer.from(key, 'base64');
+        if (typeof nonce === 'string')
+            nonce = Buffer.from(nonce, 'base64');
         if (key.length !== 32)
-            throw new Error("Key must be 32 bytes (256-bit).");
+            throw new Error('Key must be 32 bytes (256-bit).');
         if (nonce.length !== 8)
-            throw new Error("Nonce must be 8 bytes (64-bit).");
+            throw new Error('Nonce must be 8 bytes (64-bit).');
         this.key = new Uint32Array(new Uint8Array(key).buffer);
         this.nonce = new Uint32Array(new Uint8Array(nonce).buffer);
         this.counter = counter;
@@ -86,9 +86,9 @@ export class Salsa20 extends Cipher {
         return Salsa20.encodeBase64(crypto.getRandomValues(new Uint8Array(8)));
     }
     static encodeBase64(uint8array) {
-        return Buffer.from(uint8array).toString("base64");
+        return Buffer.from(uint8array).toString('base64');
     }
     static decodeBase64(base64) {
-        return new Uint8Array(Buffer.from(base64, "base64"));
+        return new Uint8Array(Buffer.from(base64, 'base64'));
     }
 }

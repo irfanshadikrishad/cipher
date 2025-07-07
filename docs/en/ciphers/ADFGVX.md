@@ -3,16 +3,16 @@
 ADFGVX is a German encryption system dating from the First World War (WWI) using a grid and the letters A,D,F,G,V,X before subjecting the ciphertext to column transposition.
 
 ```ts
-import { Cipher } from "@irfanshadikrishad/cipher"
+import { Cipher } from '@irfanshadikrishad/cipher'
 
-const adfgvx = new Cipher.ADFGVX("MIMX", "HIMOMILOVEYOU")
+const adfgvx = new Cipher.ADFGVX('MIMX', 'HIMOMILOVEYOU')
 
-const plaintext = "youseebutyoudonotobserve"
+const plaintext = 'youseebutyoudonotobserve'
 const encrypt = adfgvx.encrypt(plaintext)
 const decrypt = adfgvx.decrypt(enc)
 
 console.log(
-  `Plaintext:\t${plaintext}\nEncrypted:\t${encrypt}\nDecrypted:\t${decrypt}`
+	`Plaintext:\t${plaintext}\nEncrypted:\t${encrypt}\nDecrypted:\t${decrypt}`
 )
 ```
 

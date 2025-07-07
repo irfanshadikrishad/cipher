@@ -1,8 +1,8 @@
-import { Cipher } from "../Cipher.js";
+import { Cipher } from '../Cipher.js';
 export class Atbash extends Cipher {
     encrypt(text) {
         return text
-            .split("")
+            .split('')
             .map((char) => {
             const code = char.charCodeAt(0);
             if (code >= 65 && code <= 90) {
@@ -13,7 +13,7 @@ export class Atbash extends Cipher {
             }
             return char;
         })
-            .join("");
+            .join('');
     }
     decrypt(text) {
         // Since Atbash is a reciprocal cipher, encryption and decryption are identical.
