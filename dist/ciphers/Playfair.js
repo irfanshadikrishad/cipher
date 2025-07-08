@@ -1,14 +1,14 @@
-import { Cipher } from "../Cipher.js";
+import { Cipher } from '../Cipher.js';
 export class Playfair extends Cipher {
     constructor(key) {
         super();
         this.keyMatrix = this.generateKeyMatrix(key);
     }
     generateKeyMatrix(key) {
-        key = key.toUpperCase().replace(/J/g, "I");
+        key = key.toUpperCase().replace(/J/g, 'I');
         const seen = new Set();
         const matrix = [];
-        const alphabet = "ABCDEFGHIKLMNOPQRSTUVWXYZ";
+        const alphabet = 'ABCDEFGHIKLMNOPQRSTUVWXYZ';
         key += alphabet;
         for (const char of key) {
             if (!seen.has(char) && alphabet.includes(char)) {
@@ -31,14 +31,14 @@ export class Playfair extends Cipher {
     prepareText(text) {
         text = text
             .toUpperCase()
-            .replace(/J/g, "I")
-            .replace(/[^A-Z]/g, "");
-        let result = "";
+            .replace(/J/g, 'I')
+            .replace(/[^A-Z]/g, '');
+        let result = '';
         for (let i = 0; i < text.length; i += 2) {
             const a = text[i];
-            const b = text[i + 1] || "X";
+            const b = text[i + 1] || 'X';
             if (a === b) {
-                result += a + "X";
+                result += a + 'X';
                 i--;
             }
             else {
@@ -48,7 +48,7 @@ export class Playfair extends Cipher {
         return result;
     }
     processPairs(text, encrypt) {
-        let result = "";
+        let result = '';
         const shift = encrypt ? 1 : -1;
         for (let i = 0; i < text.length; i += 2) {
             const [row1, col1] = this.findPosition(text[i]);

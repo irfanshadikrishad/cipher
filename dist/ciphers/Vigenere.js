@@ -1,14 +1,14 @@
-import { Cipher } from "../Cipher.js";
+import { Cipher } from '../Cipher.js';
 export class Vigenere extends Cipher {
     constructor(key) {
         super();
         if (!key || !/^[a-zA-Z]+$/.test(key)) {
-            throw new Error("Key must be a non-empty string containing only letters.");
+            throw new Error('Key must be a non-empty string containing only letters.');
         }
         this.key = key.toUpperCase();
     }
     repeatKey(text) {
-        let repeatedKey = "";
+        let repeatedKey = '';
         for (let i = 0, j = 0; i < text.length; i++) {
             const char = text[i];
             if (/[a-zA-Z]/.test(char)) {
@@ -24,16 +24,16 @@ export class Vigenere extends Cipher {
     encrypt(text) {
         const key = this.repeatKey(text);
         return text
-            .split("")
+            .split('')
             .map((char, i) => {
-            if (char >= "A" && char <= "Z") {
+            if (char >= 'A' && char <= 'Z') {
                 return String.fromCharCode(((char.charCodeAt(0) -
                     65 +
                     (key[i].toUpperCase().charCodeAt(0) - 65)) %
                     26) +
                     65);
             }
-            else if (char >= "a" && char <= "z") {
+            else if (char >= 'a' && char <= 'z') {
                 return String.fromCharCode(((char.charCodeAt(0) -
                     97 +
                     (key[i].toLowerCase().charCodeAt(0) - 97)) %
@@ -42,14 +42,14 @@ export class Vigenere extends Cipher {
             }
             return char;
         })
-            .join("");
+            .join('');
     }
     decrypt(text) {
         const key = this.repeatKey(text);
         return text
-            .split("")
+            .split('')
             .map((char, i) => {
-            if (char >= "A" && char <= "Z") {
+            if (char >= 'A' && char <= 'Z') {
                 return String.fromCharCode(((char.charCodeAt(0) -
                     65 -
                     (key[i].toUpperCase().charCodeAt(0) - 65) +
@@ -57,7 +57,7 @@ export class Vigenere extends Cipher {
                     26) +
                     65);
             }
-            else if (char >= "a" && char <= "z") {
+            else if (char >= 'a' && char <= 'z') {
                 return String.fromCharCode(((char.charCodeAt(0) -
                     97 -
                     (key[i].toLowerCase().charCodeAt(0) - 97) +
@@ -67,6 +67,6 @@ export class Vigenere extends Cipher {
             }
             return char;
         })
-            .join("");
+            .join('');
     }
 }

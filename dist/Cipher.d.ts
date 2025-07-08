@@ -1,13 +1,13 @@
-import { Caesar } from "./ciphers/Caesar.js";
-import { Atbash } from "./ciphers/Atbash.js";
-import { Playfair } from "./ciphers/Playfair.js";
-import { Vigenere } from "./ciphers/Vigenere.js";
-import { Alphabet } from "./ciphers/Alphabet.js";
-import { Salsa20 } from "./ciphers/Salsa20.js";
-import { ADFGVX } from "./ciphers/ADFGVX.js";
-import { AES } from "./ciphers/AES.js";
-import { DES } from "./ciphers/DES.js";
-import { ECC } from "./ciphers/ECC.js";
+import { ADFGVX } from './ciphers/ADFGVX.js';
+import { AES } from './ciphers/AES.js';
+import { Alphabet } from './ciphers/Alphabet.js';
+import { Atbash } from './ciphers/Atbash.js';
+import { Caesar } from './ciphers/Caesar.js';
+import { DES } from './ciphers/DES.js';
+import { ECC } from './ciphers/ECC.js';
+import { Playfair } from './ciphers/Playfair.js';
+import { Salsa20 } from './ciphers/Salsa20.js';
+import { Vigenere } from './ciphers/Vigenere.js';
 export declare abstract class Cipher {
     /**
      * Caesar cipher is a substitution cipher where each letter in the plaintext is shifted a certain number of places down the alphabet.

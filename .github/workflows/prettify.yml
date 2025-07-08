@@ -1,14 +1,11 @@
 name: Prettify
 on:
   pull_request:
-    branches:
-      - master
-
+    branches: [master]
 permissions:
   actions: write
   contents: write
   pull-requests: write
-
 jobs:
   prettier:
     runs-on: ubuntu-latest
@@ -20,7 +17,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "22"
+          node-version: '22'
       - name: Install dependencies
         run: npm install
       - name: Run Prettier
@@ -28,7 +25,7 @@ jobs:
       - name: Commit and push changes back to PR
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
+        run: |-
           git config --global user.name 'Irfan Shadik Rishad'
           git config --global user.email '77362427+irfanshadikrishad@users.noreply.github.com'
           git add .

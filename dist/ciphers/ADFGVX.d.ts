@@ -1,4 +1,4 @@
-import { Cipher } from "../Cipher.js";
+import { Cipher } from '../Cipher.js';
 export declare class ADFGVX extends Cipher {
     private key;
     private codeword;

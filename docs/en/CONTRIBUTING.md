@@ -16,7 +16,6 @@ Thank you for considering contributing to **@irfanshadikrishad/cipher**! We welc
     cd cipher
     ```
 4.  Set Up the Development Environment
-
     1. Install the required dependencies:
 
     ```bash

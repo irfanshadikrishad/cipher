@@ -14,8 +14,8 @@ jobs:
           ref: master
       - uses: actions/setup-node@v4
         with:
-          node-version: "20.x"
-          registry-url: "https://registry.npmjs.org"
+          node-version: 20.x
+          registry-url: https://registry.npmjs.org
       - name: Configure Git
         run: |
           git config --global user.name "Irfan Shadik Rishad"
@@ -23,7 +23,6 @@ jobs:
       - name: Bump Version
         run: |
           TAG="${{ github.event.release.tag_name }}"
-
           if [[ "$TAG" == *"-major" ]]; then
             npm version major --no-git-tag-version
           elif [[ "$TAG" == *"-minor" ]]; then

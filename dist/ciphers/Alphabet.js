@@ -1,4 +1,4 @@
-import { Cipher } from "../Cipher.js";
+import { Cipher } from '../Cipher.js';
 export class Alphabet extends Cipher {
     constructor(keyword) {
         super();
@@ -12,7 +12,7 @@ export class Alphabet extends Cipher {
     encrypt(message) {
         message = message.toLowerCase();
         const table = Alphabet.getVigenereTable();
-        let result = "";
+        let result = '';
         for (let i = 0; i < message.length; i++) {
             const msgChar = message[i];
             const keyChar = this.keyword[i % this.keyword.length];
@@ -34,7 +34,7 @@ export class Alphabet extends Cipher {
     decrypt(ciphertext) {
         ciphertext = ciphertext.toLowerCase();
         const table = Alphabet.getVigenereTable();
-        let result = "";
+        let result = '';
         for (let i = 0; i < ciphertext.length; i++) {
             const cipherChar = ciphertext[i];
             const keyChar = this.keyword[i % this.keyword.length];
@@ -56,10 +56,10 @@ export class Alphabet extends Cipher {
         for (let i = 0; i < 26; i++) {
             table[i] = Alphabet.alphabet
                 .slice(i)
-                .split("")
-                .concat(Alphabet.alphabet.slice(0, i).split(""));
+                .split('')
+                .concat(Alphabet.alphabet.slice(0, i).split(''));
         }
         return table;
     }
 }
-Alphabet.alphabet = "abcdefghijklmnopqrstuvwxyz";
+Alphabet.alphabet = 'abcdefghijklmnopqrstuvwxyz';
