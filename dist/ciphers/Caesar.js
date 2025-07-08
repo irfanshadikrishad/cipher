@@ -1,4 +1,4 @@
-import { Cipher } from "../Cipher.js";
+import { Cipher } from '../Cipher.js';
 export class Caesar extends Cipher {
     constructor(shift) {
         super();
@@ -6,7 +6,7 @@ export class Caesar extends Cipher {
     }
     encrypt(text) {
         return text
-            .split("")
+            .split('')
             .map((char) => {
             const code = char.charCodeAt(0);
             if (code >= 65 && code <= 90) {
@@ -17,11 +17,11 @@ export class Caesar extends Cipher {
             }
             return char;
         })
-            .join("");
+            .join('');
     }
     decrypt(text) {
         return text
-            .split("")
+            .split('')
             .map((char) => {
             const code = char.charCodeAt(0);
             if (code >= 65 && code <= 90) {
@@ -32,6 +32,6 @@ export class Caesar extends Cipher {
             }
             return char;
         })
-            .join("");
+            .join('');
     }
 }

@@ -2,9 +2,9 @@
 
 A versatile and secure cryptographic library for implementing various cipher algorithms in Node.js applications with zero/0 dependencies.
 
-![NPM Version](https://img.shields.io/npm/v/%40irfanshadikrishad%2Fcipher?style=for-the-badge&labelColor=202020&color=81B29A)
-![NPM Downloads](https://img.shields.io/npm/dw/%40irfanshadikrishad%2Fcipher?style=for-the-badge&labelColor=202020&color=BE9A60)
-![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/%40irfanshadikrishad%2Fcipher?style=for-the-badge&labelColor=202020&color=655699)
+![NPM Version](https://img.shields.io/npm/v/%40irfanshadikrishad%2Fcipher?style=for-the-badge&labelColor=141b23&color=%2385c1dc)
+![NPM Downloads](https://img.shields.io/npm/dw/%40irfanshadikrishad%2Fcipher?style=for-the-badge&labelColor=202020&color=81B29A)
+![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/%40irfanshadikrishad%2Fcipher?style=for-the-badge&labelColor=202020&color=BE9A60)
 
 #### 🚀 Installation
 
@@ -31,12 +31,12 @@ bun add @irfanshadikrishad/cipher
 Import the library and use a cipher algorithm:
 
 ```ts
-import { Cipher } from "@irfanshadikrishad/cipher"
+import { Cipher } from '@irfanshadikrishad/cipher'
 
 // Create a Caesar Cipher instance with a shift of 6
 const caesar = new Cipher.Caesar(6)
 
-console.log(caesar.encrypt("hello world")) // Output: "nkrru cuxrj"
+console.log(caesar.encrypt('hello world')) // Output: "nkrru cuxrj"
 ```
 
 #### 🔐 Supported Ciphers

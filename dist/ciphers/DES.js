@@ -1,5 +1,5 @@
-import { Cipher } from "../Cipher.js";
-import { Buffer } from "buffer";
+import { Buffer } from 'buffer';
+import { Cipher } from '../Cipher.js';
 const IP = [
     // Initial Permutation
     58, 50, 42, 34, 26, 18, 10, 2, 60, 52, 44, 36, 28, 20, 12, 4, 62, 54, 46, 38,
@@ -18,7 +18,7 @@ export class DES extends Cipher {
     constructor(key) {
         super();
         if (key.length !== 8)
-            throw new Error("DES key must be exactly 8 characters.");
+            throw new Error('DES key must be exactly 8 characters.');
         this.key = this.stringToBigInt(key);
     }
     encrypt(text) {
@@ -30,15 +30,15 @@ export class DES extends Cipher {
             const permuted = this.permute(input, IP);
             const encrypted = this.feistel(permuted);
             const finalPerm = this.permute(encrypted, FP);
-            encryptedBlocks.push(finalPerm.toString(16).padStart(16, "0"));
+            encryptedBlocks.push(finalPerm.toString(16).padStart(16, '0'));
         }
-        return encryptedBlocks.join(""); // Concatenate hex strings
+        return encryptedBlocks.join(''); // Concatenate hex strings
     }
     decrypt(text) {
-        let decryptedText = "";
+        let decryptedText = '';
         for (let i = 0; i < text.length; i += 16) {
             // 16 hex chars = 8 bytes
-            const block = BigInt("0x" + text.substring(i, i + 16));
+            const block = BigInt('0x' + text.substring(i, i + 16));
             const permuted = this.permute(block, IP);
             const decrypted = this.feistel(permuted);
             const finalPerm = this.permute(decrypted, FP);
@@ -79,9 +79,9 @@ export class DES extends Cipher {
         return output;
     }
     stringToBigInt(str) {
-        return BigInt("0x" + Buffer.from(str, "utf8").toString("hex"));
+        return BigInt('0x' + Buffer.from(str, 'utf8').toString('hex'));
     }
     bigIntToString(num) {
-        return Buffer.from(num.toString(16).padStart(16, "0"), "hex").toString("utf8");
+        return Buffer.from(num.toString(16).padStart(16, '0'), 'hex').toString('utf8');
     }
 }
