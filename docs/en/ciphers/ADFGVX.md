@@ -12,7 +12,7 @@ const encrypt = adfgvx.encrypt(plaintext)
 const decrypt = adfgvx.decrypt(enc)
 
 console.log(
-	`Plaintext:\t${plaintext}\nEncrypted:\t${encrypt}\nDecrypted:\t${decrypt}`
+  `Plaintext:\t${plaintext}\nEncrypted:\t${encrypt}\nDecrypted:\t${decrypt}`
 )
 ```
 

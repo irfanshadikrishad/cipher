@@ -6,8 +6,8 @@ The Data Encryption Standard (DES /ˌdiːˌiːˈɛs, dɛz/) is a symmetric-key a
 import { Cipher } from '@irfanshadikrishad/cipher'
 
 const des = new Cipher.DES(
-	crypto.getRandomValues(new Uint8Array(8)),
-	crypto.getRandomValues(new Uint8Array(8))
+  crypto.getRandomValues(new Uint8Array(8)),
+  crypto.getRandomValues(new Uint8Array(8))
 )
 
 const plaintext = 'You see but you do not observe.'
