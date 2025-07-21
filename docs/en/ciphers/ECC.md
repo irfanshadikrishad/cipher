@@ -6,24 +6,24 @@ Elliptic Curve Cryptography (ECC) is a modern public-key encryption technique kn
 import { Cipher } from '@irfanshadikrishad/cipher'
 
 async function main() {
-	// Generate ECC key pairs for both parties
-	const alice = await Cipher.ECC.generate()
-	const bob = await Cipher.ECC.generate()
+  // Generate ECC key pairs for both parties
+  const alice = await Cipher.ECC.generate()
+  const bob = await Cipher.ECC.generate()
 
-	// Exchange public keys
-	const bobPublic = await bob.exportPublicKey()
-	alice['recipientPublicKey'] = await Cipher.ECC.importPublicKey(bobPublic)
+  // Exchange public keys
+  const bobPublic = await bob.exportPublicKey()
+  alice['recipientPublicKey'] = await Cipher.ECC.importPublicKey(bobPublic)
 
-	// Alice encrypts a message for Bob
-	const plaintext = 'hello, ecc!'
-	const encrypted = await alice.encrypt(plaintext)
+  // Alice encrypts a message for Bob
+  const plaintext = 'hello, ecc!'
+  const encrypted = await alice.encrypt(plaintext)
 
-	// Bob decrypts the message using his private key
-	const decrypted = await bob.decrypt(encrypted)
+  // Bob decrypts the message using his private key
+  const decrypted = await bob.decrypt(encrypted)
 
-	console.log(
-		`Plaintext:\t${plaintext}\nEncrypted:\t${encrypted}\nDecrypted:\t${decrypted}`
-	)
+  console.log(
+    `Plaintext:\t${plaintext}\nEncrypted:\t${encrypted}\nDecrypted:\t${decrypted}`
+  )
 }
 
 main()

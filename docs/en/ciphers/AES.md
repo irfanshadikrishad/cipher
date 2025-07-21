@@ -11,7 +11,7 @@ const encrypt = aes.encrypt(plaintext)
 const decrypt = aes.decrypt(encrypt)
 
 console.log(
-	`Plaintext:\t${plaintext}\nEncrypted:\t${encrypt}\nDecrypted:\t${decrypt}`
+  `Plaintext:\t${plaintext}\nEncrypted:\t${encrypt}\nDecrypted:\t${decrypt}`
 )
 ```
 
