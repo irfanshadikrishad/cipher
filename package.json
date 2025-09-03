@@ -1,7 +1,7 @@
 {
   "name": "@irfanshadikrishad/cipher",
   "description": "A versatile and secure cryptographic library for implementing various cipher algorithms in Node.js applications with zero/0 dependencies.",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "author": {
     "name": "Irfan Shadik Rishad"
   },
