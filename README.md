@@ -55,6 +55,7 @@ This library provides implementations of various classical and modern ciphers:
 | [AES](/docs/en/ciphers/AES.md)                      | Symmetric Block Cipher                   | Yes           | High      | Also known as, Rijndael                             |
 | [DES](/docs/en/ciphers/DES.md)                      | Symmetric Block Cipher                   | Yes           | Medium    | 56-bit key, Used in legacy systems, replaced by AES |
 | [ECC](/docs/en/ciphers/ECC.md)                      | Asymmetric (Public-Key Cryptography)     | Yes           | Very High | Used in modern systems like Bitcoin, TLS, JWT, etc. |
+| [ROT13](/docs/en/ciphers/ROT13.md)                  | Substitution (Caesar variant)            | No            | Very Low  | Simple text obfuscation, not secure                 |
 
 More ciphers coming soon...
 
