@@ -6,6 +6,7 @@ import { Caesar } from './ciphers/Caesar.js'
 import { DES } from './ciphers/DES.js'
 import { ECC } from './ciphers/ECC.js'
 import { Playfair } from './ciphers/Playfair.js'
+import { ROT13 } from './ciphers/ROT13.js'
 import { Salsa20 } from './ciphers/Salsa20.js'
 import { Vigenere } from './ciphers/Vigenere.js'
 
@@ -60,11 +61,14 @@ export abstract class Cipher {
    * @param iv 8 characters long
    */
   static DES: typeof DES
-
   /**
    * Elliptic-curve cryptography (ECC) is an approach to public-key cryptography based on the algebraic structure of elliptic curves over finite fields.
    */
   static ECC: typeof ECC
+  /**
+   * ROT13 is a simple letter substitution cipher that replaces a letter with the 13th letter after it in the Latin alphabet.
+   */
+  static ROT13: typeof ROT13
 
   abstract encrypt(text: string): string | Promise<string>
   abstract decrypt(text: string): string | Promise<string>
