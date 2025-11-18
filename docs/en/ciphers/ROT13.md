@@ -3,17 +3,19 @@
 ```ts
 import { Cipher } from '@irfanshadikrishad/cipher'
 
-// Create a Playfair Cipher instance with a keyword
-const playfair = new Cipher.ROT13()
+// Create a rot13 cipher instance
+const rot13 = new Cipher.ROT13()
 
 // Encrypt the text
-console.log(playfair.encrypt('Hello World!'))
+console.log(rot13.encrypt('Hello World!'))
 // Example Output: "Uryyb Jbeyq!"
 
 // Decrypt the text
-console.log(playfair.decrypt('Uryyb Jbeyq!'))
+console.log(rot13.decrypt('Uryyb Jbeyq!'))
 // Output: "Hello World!"
 ```
+
+#### Substitution Swap Table
 
 <table
   <tr>
