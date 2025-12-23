@@ -6,6 +6,7 @@ import { Atbash } from './ciphers/Atbash.js'
 import { Caesar } from './ciphers/Caesar.js'
 import { DES } from './ciphers/DES.js'
 import { ECC } from './ciphers/ECC.js'
+import { Nihilist } from './ciphers/Nihilist.js'
 import { Playfair } from './ciphers/Playfair.js'
 import { ROT13 } from './ciphers/ROT13.js'
 import { Salsa20 } from './ciphers/Salsa20.js'
@@ -22,5 +23,6 @@ Cipher.AES = AES
 Cipher.DES = DES
 Cipher.ECC = ECC
 Cipher.ROT13 = ROT13
+Cipher.Nihilist = Nihilist
 
 export { Cipher }

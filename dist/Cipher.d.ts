@@ -5,6 +5,7 @@ import { Atbash } from './ciphers/Atbash.js';
 import { Caesar } from './ciphers/Caesar.js';
 import { DES } from './ciphers/DES.js';
 import { ECC } from './ciphers/ECC.js';
+import { Nihilist } from './ciphers/Nihilist.js';
 import { Playfair } from './ciphers/Playfair.js';
 import { ROT13 } from './ciphers/ROT13.js';
 import { Salsa20 } from './ciphers/Salsa20.js';
@@ -68,6 +69,10 @@ export declare abstract class Cipher {
      * ROT13 is a simple letter substitution cipher that replaces a letter with the 13th letter after it in the Latin alphabet.
      */
     static ROT13: typeof ROT13;
+    /**
+     * Nihilist cipher is a manually operated symmetric encryption cipher, originally used by Russian Nihilists in the 1880s to organize terrorism against the tsarist regime.
+     */
+    static Nihilist: typeof Nihilist;
     abstract encrypt(text: string): string | Promise<string>;
     abstract decrypt(text: string): string | Promise<string>;
 }
