@@ -3,8 +3,8 @@
 A versatile and secure cryptographic library for implementing various cipher algorithms in Node.js applications with zero/0 dependencies.
 
 ![NPM Version](https://img.shields.io/npm/v/%40irfanshadikrishad%2Fcipher?style=for-the-badge&labelColor=141b23&color=%2385c1dc)
-![NPM Downloads](https://img.shields.io/npm/dw/%40irfanshadikrishad%2Fcipher?style=for-the-badge&labelColor=202020&color=81B29A)
-![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/%40irfanshadikrishad%2Fcipher?style=for-the-badge&labelColor=202020&color=BE9A60)
+![NPM Downloads](https://img.shields.io/npm/dw/%40irfanshadikrishad%2Fcipher?style=for-the-badge&labelColor=141b23&color=%2385c1dc)
+![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/%40irfanshadikrishad%2Fcipher?style=for-the-badge&labelColor=141b23&color=%2385c1dc)
 
 #### 🚀 Installation
 
@@ -26,7 +26,7 @@ bun:
 bun add @irfanshadikrishad/cipher
 ```
 
-#### 📖 Usage
+#### Usage
 
 Import the library and use a cipher algorithm:
 
@@ -39,7 +39,7 @@ const caesar = new Cipher.Caesar(6)
 console.log(caesar.encrypt('hello world')) // Output: "nkrru cuxrj"
 ```
 
-#### 🔐 Supported Ciphers
+#### Supported Ciphers
 
 This library provides implementations of various classical and modern ciphers:
 
@@ -60,11 +60,11 @@ This library provides implementations of various classical and modern ciphers:
 
 More ciphers coming soon...
 
-#### 🍀 Contribution
+#### Contribution
 
 To contribute on the codebase, follow [contribution guideline](/docs/en/CONTRIBUTING.md).
 
-#### ❤️ Support
+#### Support
 
 If you find this library useful, consider giving it a ⭐ on GitHub!
 
