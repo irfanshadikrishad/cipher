@@ -1,3 +1,4 @@
+import { Buffer } from 'buffer'
 import { webcrypto } from 'node:crypto'
 import { Cipher } from '../Cipher.js'
 
