@@ -1,14 +1,25 @@
 import { Cipher } from './Cipher.js'
 import { ADFGVX } from './ciphers/ADFGVX.js'
 import { AES } from './ciphers/AES.js'
+import { AESGCM } from './ciphers/AESGCM.js'
+import { Affine } from './ciphers/Affine.js'
 import { Alphabet } from './ciphers/Alphabet.js'
 import { Atbash } from './ciphers/Atbash.js'
+import { Autokey } from './ciphers/Autokey.js'
+import { Beaufort } from './ciphers/Beaufort.js'
+import { Bifid } from './ciphers/Bifid.js'
+import { Blowfish } from './ciphers/Blowfish.js'
 import { Caesar } from './ciphers/Caesar.js'
+import { ChaCha20 } from './ciphers/ChaCha20.js'
+import { ColumnarTransposition } from './ciphers/ColumnarTransposition.js'
 import { DES } from './ciphers/DES.js'
 import { ECC } from './ciphers/ECC.js'
 import { Nihilist } from './ciphers/Nihilist.js'
 import { Playfair } from './ciphers/Playfair.js'
+import { RailFence } from './ciphers/RailFence.js'
+import { RC4 } from './ciphers/RC4.js'
 import { ROT13 } from './ciphers/ROT13.js'
+import { RSA } from './ciphers/RSA.js'
 import { Salsa20 } from './ciphers/Salsa20.js'
 import { Vigenere } from './ciphers/Vigenere.js'
 
@@ -24,5 +35,16 @@ Cipher.DES = DES
 Cipher.ECC = ECC
 Cipher.ROT13 = ROT13
 Cipher.Nihilist = Nihilist
+Cipher.RailFence = RailFence
+Cipher.Affine = Affine
+Cipher.Beaufort = Beaufort
+Cipher.Autokey = Autokey
+Cipher.ColumnarTransposition = ColumnarTransposition
+Cipher.Bifid = Bifid
+Cipher.RC4 = RC4
+Cipher.Blowfish = Blowfish
+Cipher.ChaCha20 = ChaCha20
+Cipher.AESGCM = AESGCM
+Cipher.RSA = RSA
 
 export { Cipher }
