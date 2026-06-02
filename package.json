@@ -46,7 +46,7 @@
   "prettier": "@irfanshadikrishad/prettier",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@irfanshadikrishad/prettier": "^1.3.4",
+    "@irfanshadikrishad/prettier": "^1.3.6",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.6.0",
     "@typescript-eslint/eslint-plugin": "^8.57.0",
