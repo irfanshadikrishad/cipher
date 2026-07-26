@@ -42,7 +42,7 @@ jobs:
           VERSION: ${{ env.VERSION }}
         run: |
           git add package.json package-lock.json
-          git commit -m "npmjs: v${VERSION}"
+          git commit -m "chore(npmjs): v${VERSION}"
           git push origin master
       - name: Install Dependencies
         run: npm ci
